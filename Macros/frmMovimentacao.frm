@@ -16,6 +16,7 @@ Attribute VB_Exposed = False
 
 
 
+
 Private Sub cmdSair_Click()
     Unload Me
 End Sub
@@ -30,6 +31,12 @@ Private Sub cmdSalvar_Click()
             Exit Sub
         End If
         
+         If lblTipoForm = "inclusão" Then
+            Range("A1").Select
+            Selection.End(xlDown).Select
+            ActiveCell.Offset(1, 0).Select
+         End If
+         
         Range("A" & Selection.Row) = txtAtivo
         Range("B" & Selection.Row) = CDbl(txtQtd) 'CDBL DOUBLE - MUDA VALOR PARA DOUBLE
         Range("C" & Selection.Row) = cmdTipo
